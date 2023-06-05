@@ -19,6 +19,13 @@ public class Main {
         saveGame("D://Games/savegames/save3.dat", progress3);
 
         zipFiles("D://Games/saves.zip", archive);
+
+        File dirToDelete = new File("D://Games/savegames");
+        if (dirToDelete.isDirectory()) {
+            for (File item : dirToDelete.listFiles()) {
+                item.delete();
+            }
+        }
     }
 
     public static void saveGame(String dirFile, GameProgress progress) {
